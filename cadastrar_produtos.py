@@ -3,7 +3,6 @@ import os
 import requests
 from json import dumps
 import streamlit as st
-from dotenv import load_dotenv
 
 
 def cadastrar_produtos(banco: str, titulo: str) -> None:
@@ -13,8 +12,7 @@ def cadastrar_produtos(banco: str, titulo: str) -> None:
     :param titulo: Nome do banco quando selecionado.
     """
     # --- Link do banco de dados --- #
-    load_dotenv()
-    link = os.getenv('LINK_BD_PRODUTOS')
+    link = st.secrets('LINK_BD_PRODUTOS')
 
     # --- Dados do produto --- #
     with st.form('cadastrar_produto'):

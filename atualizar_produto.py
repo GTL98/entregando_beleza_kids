@@ -2,7 +2,7 @@
 import os
 import requests
 from json import dumps
-from dotenv import load_dotenv
+import streamlit as st
 
 
 def atualizar_produto(**kwargs) -> None:
@@ -20,8 +20,7 @@ def atualizar_produto(**kwargs) -> None:
     descricao = kwargs['descricao']
 
     # --- Link do banco de dados --- #
-    load_dotenv()
-    link = os.getenv('LINK_BD_PRODUTOS')
+    link = st.secrets('LINK_BD_PRODUTOS')
 
     # --- Obter o dicionário da calsse do produto --- #
     requisicao = requests.get(f'{link}/{banco}/.json')

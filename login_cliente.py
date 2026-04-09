@@ -3,7 +3,6 @@ import os
 import requests
 import streamlit as st
 from hashlib import sha256
-from dotenv import load_dotenv
 
 
 def login_cliente(usuario: str, senha: str) -> None:
@@ -13,8 +12,7 @@ def login_cliente(usuario: str, senha: str) -> None:
     :param senha: Senha do cliente.
     """
     # --- Link do banco de dados --- #
-    load_dotenv()
-    link = os.getenv('LINK_BD_CLIENTES')
+    link = st.secrets('LINK_BD_CLIENTES')
 
     # --- Obter as chaves de identificação dos clientes --- #
     requisicao = requests.get(f'{link}/.json')

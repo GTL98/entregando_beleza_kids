@@ -4,7 +4,6 @@ import json
 import requests
 import streamlit as st
 from hashlib import sha256
-from dotenv import load_dotenv
 
 
 def cadastrar_cliente(**kwargs) -> None:
@@ -20,8 +19,7 @@ def cadastrar_cliente(**kwargs) -> None:
     senha_usuario = kwargs['senha_usuario']
 
     # --- Link do banco de dados --- #
-    load_dotenv()
-    link = os.getenv('LINK_BD_CLIENTES')
+    link = st.secrets('LINK_BD_CLIENTES')
 
     # --- Criptografar o usuário --- #
     usuario = f'{nome_usuario}{senha_usuario}'

@@ -1,7 +1,7 @@
 # --- Importar as bibliotecas --- #
 import os
 import requests
-from dotenv import load_dotenv
+import streamlit as st
 
 
 def deletar_produto(banco: str, codigo: int) -> None:
@@ -11,8 +11,7 @@ def deletar_produto(banco: str, codigo: int) -> None:
     :param codigo: Código do produto a ser deletado.
     """
     # --- Acessar o banco de dados --- #
-    load_dotenv()
-    link = os.getenv('LINK_BD_PRODUTOS')
+    link = st.secrets('LINK_BD_PRODUTOS')
 
     # --- Deletar o produto desejado --- #
     requests.delete(f'{link}/{banco}/{codigo}/.json')
