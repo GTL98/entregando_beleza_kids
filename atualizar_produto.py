@@ -20,7 +20,7 @@ def atualizar_produto(**kwargs) -> None:
     descricao = kwargs['descricao']
 
     # --- Link do banco de dados --- #
-    link = st.secrets('LINK_BD_PRODUTOS')
+    link = st.secrets['LINK_BD_PRODUTOS']
 
     # --- Obter o dicionário da calsse do produto --- #
     requisicao = requests.get(f'{link}/{banco}/.json')

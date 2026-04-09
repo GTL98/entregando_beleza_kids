@@ -12,7 +12,7 @@ def login_cliente(usuario: str, senha: str) -> None:
     :param senha: Senha do cliente.
     """
     # --- Link do banco de dados --- #
-    link = st.secrets('LINK_BD_CLIENTES')
+    link = st.secrets['LINK_BD_CLIENTES']
 
     # --- Obter as chaves de identificação dos clientes --- #
     requisicao = requests.get(f'{link}/.json')

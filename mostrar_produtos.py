@@ -19,7 +19,7 @@ def mostrar_produtos(banco: str, tipo: str, kit:bool=False):
     if tipo == 'adm':
         # --- Acessar o banco de dados --- #
         load_dotenv()
-        link = st.secrets('LINK_BD_PRODUTOS')
+        link = st.secrets['LINK_BD_PRODUTOS']
 
         # --- Obter o dicionário da classe do produto --- #
         requisicao = requests.get(f'{link}/{banco}/.json')

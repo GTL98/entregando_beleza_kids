@@ -12,7 +12,7 @@ def cadastrar_produtos(banco: str, titulo: str) -> None:
     :param titulo: Nome do banco quando selecionado.
     """
     # --- Link do banco de dados --- #
-    link = st.secrets('LINK_BD_PRODUTOS')
+    link = st.secrets['LINK_BD_PRODUTOS']
 
     # --- Dados do produto --- #
     with st.form('cadastrar_produto'):

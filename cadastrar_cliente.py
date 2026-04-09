@@ -19,7 +19,7 @@ def cadastrar_cliente(**kwargs) -> None:
     senha_usuario = kwargs['senha_usuario']
 
     # --- Link do banco de dados --- #
-    link = st.secrets('LINK_BD_CLIENTES')
+    link = st.secrets['LINK_BD_CLIENTES']
 
     # --- Criptografar o usuário --- #
     usuario = f'{nome_usuario}{senha_usuario}'

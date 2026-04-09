@@ -11,7 +11,7 @@ def deletar_produto(banco: str, codigo: int) -> None:
     :param codigo: Código do produto a ser deletado.
     """
     # --- Acessar o banco de dados --- #
-    link = st.secrets('LINK_BD_PRODUTOS')
+    link = st.secrets['LINK_BD_PRODUTOS']
 
     # --- Deletar o produto desejado --- #
     requests.delete(f'{link}/{banco}/{codigo}/.json')
