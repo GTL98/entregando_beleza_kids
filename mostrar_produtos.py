@@ -18,7 +18,6 @@ def mostrar_produtos(banco: str, tipo: str, kit:bool=False):
     # --- Se o tipo de requisição for para administração --- #
     if tipo == 'adm':
         # --- Acessar o banco de dados --- #
-        load_dotenv()
         link = st.secrets['LINK_BD_PRODUTOS']
 
         # --- Obter o dicionário da classe do produto --- #
