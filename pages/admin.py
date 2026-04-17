@@ -31,14 +31,16 @@ if st.session_state.admin:
     categorias = [
         'Cabelos',
         'Sabonetes',
-        'Cuidados da pele'
+        'Cuidados da pele',
+        'Acessórios e Utilidades'
     ]
 
     # --- Dicionário com o nome correto do banco --- #
     dic_banco = {
         'Cabelos': 'cabelos',
         'Sabonetes': 'sabonetes',
-        'Cuidados da pele': 'cuidados_pele'
+        'Cuidados da pele': 'cuidados_pele',
+        'Acessórios e Utilidades': 'acessorios_utilidade'
     }
 
     # --- Título da página --- #
