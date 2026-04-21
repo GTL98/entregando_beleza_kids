@@ -44,6 +44,9 @@ def mostrar_produtos_adm(banco: str, titulo: str) -> None:
                 value=foto,
                 key=f'{codigo}_foto'
             )
+            
+            # --- Código do produto --- #
+            st.subheader(f'Código: {codigo}')
 
             # --- Nome do produto --- #
             nome = conteudo['nome']
