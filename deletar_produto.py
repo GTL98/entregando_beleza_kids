@@ -15,3 +15,6 @@ def deletar_produto(banco: str, codigo: int) -> None:
 
     # --- Deletar o produto desejado --- #
     requests.delete(f'{link}/{banco}/{codigo}/.json')
+
+    # --- Recarregar a página --- #
+    st.rerun()

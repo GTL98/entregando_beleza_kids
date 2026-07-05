@@ -3,15 +3,18 @@ from PIL import Image
 from imagens import *
 import streamlit as st
 
-# --- Importar o CSS --- #
-from menu_css import css
-
 # --- Importar o módulo de login --- #
 from login_cliente import login_cliente
 
+# --- Importar o módulo de mostrar os produtos --- #
+from mostrar_produtos import mostrar_produtos
+
+# --- Importar o CSS --- #
+from menu_css import css
+
 # --- Configurações da página --- #
 st.set_page_config(
-    page_title='Entregando Beleza Kids',
+    page_title='Acessórios e utilidades',
     page_icon=Image.open(FAVICON),
     layout='wide'
 )
@@ -19,39 +22,24 @@ st.set_page_config(
 # --- CSS --- #
 st.html(css)
 
-# --- Banner do site --- #
-st.image(BANNER)
-
 # --- Logo da sidebar --- #
 st.logo(image=LOGO_MENU_ABERTO, icon_image=LOGO_MENU_FECHADO)
 
 # --- Título da página --- #
-st.title('Entregando Beleza Kids')
+st.title('Produtos de acessórios e utilidades')
+
+# --- Mostrar os produtos --- #
+mostrar_produtos('acessorios_utilidade', 'compra')
 
 # --- Compras na sessão do site --- #
 if 'compras' not in st.session_state:
     st.session_state.compras = {'produtos': 0}
 
-# --- Informações do cliente na sessão --- #
-if 'cliente' not in st.session_state:
-    st.session_state.cliente = {}
-
-# --- Usuário e senha do cliente --- #
-if 'usuario' not in st.session_state:
-    st.session_state.usuario = None
-if 'senha' not in st.session_state:
-    st.session_state.senha = None
-
-# --- Estado de login do cliente --- #
+# --- Verificar se o cliente está logado no site --- #
 if 'login' not in st.session_state:
     st.session_state.login = False
-
-# --- Estado do admin --- #
-if 'admin' not in st.session_state:
-    st.session_state.admin = False
-
-# --- Cadastrar o cliente --- #
 if st.session_state.login is False:
+    # --- Cadastro do cliente --- #
     st.sidebar.write('Não tem cadastro? É fácil e rápido!')
     cadastrar = st.sidebar.button('Cadastrar', width='stretch')
     if cadastrar:
@@ -64,7 +52,6 @@ if st.session_state.login is False:
     login = st.sidebar.button('Login', width='stretch')
     if login:
         login_cliente(usuario, senha)
-
 # --- Login do cliente --- #
 if st.session_state.login:
     # --- Colocar as informações das compras na sidebar --- #
@@ -74,12 +61,12 @@ if st.session_state.login:
 
     # --- Ir à página da finalização da compra --- #
     if finalizar:
-        pass
+        st.switch_page('./pages/finalizar.py')
 
     # --- Ir à página da finalização da compra --- #
     perfil = st.sidebar.button('Meu Perfil', width='stretch')
     if perfil:
-        pass
+        st.switch_page('./pages/meu_perfil.py')
 
 # --- Login com admin --- #
 if st.session_state.admin:

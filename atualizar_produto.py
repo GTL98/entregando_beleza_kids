@@ -38,3 +38,6 @@ def atualizar_produto(**kwargs) -> None:
     dic_copia[str(codigo)]['campanha'] = campanha
     dic_copia[str(codigo)]['descricao'] = descricao
     requests.patch(f'{link}/{banco}/.json', data=dumps(dic_copia))
+
+    # --- Recarregar a página --- #
+    st.rerun()

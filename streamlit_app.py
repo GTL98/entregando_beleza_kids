@@ -5,6 +5,10 @@ import streamlit as st
 pg = st.navigation(
     [
         st.Page('./pages/home.py', title='Página Inicial'),
+        st.Page('./pages/acessorios_utilidades.py', title='Acessórios e utilidade'),
+        st.Page('./pages/cabelos.py', title='Cabelos'),
+        st.Page('./pages/cuidados_pele.py', title='Cuidados da pele'),
+        st.Page('./pages/sabonetes.py', title='Sabonetes'),
         st.Page('./pages/pagina_cadastrar_cliente.py', visibility='hidden'),
         st.Page('./pages/admin.py', visibility='hidden')
      ]
